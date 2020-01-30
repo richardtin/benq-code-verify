@@ -32,7 +32,7 @@ if [ "all" == $commit_id ]
     # check_list=$(find . -type f -not -path './vendor/*' -name '*.php')
     check_list=$(git ls-files -- '*.php')
   else
-    check_list=$(git diff-tree --no-commit-id --name-only -r $commit_id -- '*.php')
+    check_list=$(git diff-tree --no-commit-id --name-only --diff-filter=AM -r $commit_id -- '*.php')
 fi
 
 # Do PHP lint
